@@ -6,6 +6,8 @@ let oneRandomColor = `rgb(${redRgb}, ${greenRgb}, ${blueRgb})`; // ONLY ONE VALU
 
 /* FUNCTION TO CALL DIFERENT COLORS EVERY TIME IS CALLED */
 
+container.style.backgroundColor = 'rgb(0, 0, 0)';
+
 function randomColorsGenerator() {
     return `rgb(${Math.floor(Math.random()*255)},
     ${Math.floor(Math.random()*255)},
@@ -76,6 +78,7 @@ function coldplayMode(e) {
 
 // FUNCTION TO DARKER SIDE
 function toEternalDarkness(e) {
+    e.target.style.opacity += 0.8;
     console.log(e.target);
 }
 
