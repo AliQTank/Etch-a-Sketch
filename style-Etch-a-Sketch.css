@@ -38,7 +38,7 @@ header {
 }
 
 #square-garden {
-    /* visibility: hidden; */
+    visibility: hidden;
     position: absolute; /* NOT YET ENDING FORM */
     margin-left: 100px;
     margin-top: 0;

@@ -1,5 +1,6 @@
 const container = document.getElementById('container');
 const squareGarden = document.getElementById('square-garden');
+const buttonSquaresOpt = document.querySelector('#square-garden input[type="submit"');
 let redRgb = Math.floor(Math.random()*255); // ONLY ONE VALUE PER PAGE LOAD
 let greenRgb = Math.floor(Math.random()*255); // ONLY ONE VALUE PER PAGE LOAD
 let blueRgb = Math.floor(Math.random()*255); // ONLY ONE VALUE PER PAGE LOAD
@@ -89,7 +90,7 @@ function toEternalDarkness(e) {
 }
 
 
-// to restart
+// TO RESTART
 
 const restart = document.getElementById('restart');
 
@@ -100,6 +101,8 @@ restart.addEventListener('click', () => {
         divSelector[i].style.removeProperty('opacity');
         }
     })
+
+// ADDEVENTLISTENER FOR RANDOMCOLORS
 
 const rainbowSix = document.getElementById('rainbow');
 
@@ -113,6 +116,8 @@ rainbowSix.addEventListener('click', () => {
         }
 })
 
+// ADDEVENTLISTENER FOR BLACK COLOR
+
 const blackout = document.getElementById('blackout');
 
 blackout.addEventListener('click', () => {
@@ -124,6 +129,8 @@ blackout.addEventListener('click', () => {
         divSelector[i].addEventListener('mouseover', blackItem);
         }
 })
+
+// ADDEVENTLISTENER FOR OPACITY
 
 const darker =document.getElementById('darker');
 
@@ -137,8 +144,18 @@ darker.addEventListener('click', () => {
         }
 })
 
+// ADDEVENTLISTENER TO SHOW SQUARES OPTIONS
+
 const gridPrompter = document.querySelector('.button-options');
 
 gridPrompter.children[0].addEventListener('click', () => {
     console.log('clicked prompter');
+    squareGarden.style.visibility = "visible";
+})
+
+// ADDEVENTLISTENER FOR SQUAREGARDENOPT BUTTON
+
+buttonSquaresOpt.addEventListener('click', () => {
+    console.log('clicked buttonSquareOpt');
+    squareGarden.style.visibility = "hidden";
 })
