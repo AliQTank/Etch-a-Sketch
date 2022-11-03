@@ -26,16 +26,18 @@ function oneSingleColor() {
 
 // FUNCTION TO ASK SQUARES PER SIDE OF GRID
 
-function makeGridXAndY(rows, cols) {
-        container.style.setProperty('--grid-rows', rows);
-        container.style.setProperty('--grid-cols', cols);
-        for (let c = 0; c < (rows*cols); c++) {
-                let cells = document.createElement('div');
-                container.appendChild(cells).className = 'grid-item';
-            }    
-        }
+function makeGridXAndY(squaresPerLine) {
+    let rows = squaresPerLine;
+    let cols = squaresPerLine;
+    container.style.setProperty('--grid-rows', rows);
+    container.style.setProperty('--grid-cols', cols);
+    for (let c = 0; c < (rows*cols); c++) {
+        let cells = document.createElement('div');
+        container.appendChild(cells).className = 'grid-item';
+        }    
+    }
         
-makeGridXAndY(10, 10);
+makeGridXAndY(15);
 
 // 
 
@@ -60,6 +62,7 @@ for(let i = 0; i < divSelector.length; i++){
 
 function selectItem(e) {
     e.target.style.backgroundColor = randomColorsGenerator();
+    e.target.style.removeProperty('opacity');
     console.log(e.target);
 }
 
@@ -67,6 +70,7 @@ function selectItem(e) {
 //FUNCTION TO SELECT CELL INTO BLACK COLOR 
 function blackItem(e) {
     e.target.style.backgroundColor = 'black';
+    e.target.style.removeProperty('opacity');
     console.log(e.target);
 }
 
@@ -78,7 +82,7 @@ function coldplayMode(e) {
 
 // FUNCTION TO DARKER SIDE
 function toEternalDarkness(e) {
-    e.target.style.opacity += 0.8;
+    e.target.style.opacity = 0.8;
     console.log(e.target);
 }
 
@@ -91,6 +95,7 @@ restart.addEventListener('click', () => {
     console.log("clicked restart");
     for(let i = 0; i < divSelector.length; i++){
         divSelector[i].style.backgroundColor = 'white';
+        divSelector[i].style.removeProperty('opacity');
         }
     })
 
