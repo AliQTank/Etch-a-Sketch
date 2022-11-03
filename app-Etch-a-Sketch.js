@@ -1,4 +1,5 @@
 const container = document.getElementById('container');
+const squareGarden = document.getElementById('square-garden');
 let redRgb = Math.floor(Math.random()*255); // ONLY ONE VALUE PER PAGE LOAD
 let greenRgb = Math.floor(Math.random()*255); // ONLY ONE VALUE PER PAGE LOAD
 let blueRgb = Math.floor(Math.random()*255); // ONLY ONE VALUE PER PAGE LOAD
@@ -37,7 +38,7 @@ function makeGridXAndY(squaresPerLine) {
         }    
     }
         
-makeGridXAndY(15);
+makeGridXAndY(5);
 
 // 
 
@@ -63,6 +64,7 @@ for(let i = 0; i < divSelector.length; i++){
 function selectItem(e) {
     e.target.style.backgroundColor = randomColorsGenerator();
     e.target.style.removeProperty('opacity');
+    //element.style.opacity = "" // THIS OPTION IS MORE COMPATIBLE WITH ELDER BROWSERS
     console.log(e.target);
 }
 

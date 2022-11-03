@@ -37,6 +37,39 @@ header {
     color: white;
 }
 
+#square-garden {
+    /* visibility: hidden; */
+    position: absolute; /* NOT YET ENDING FORM */
+    margin-left: 100px;
+    margin-top: 0;
+    border: 2px solid rgb(255, 255, 255);
+    border-radius: 8px;
+    width: fit-content;
+    padding:  10px;
+    background-color: black;
+    color: white;
+    font-weight: bold;
+
+}
+
+#square-garden select {
+    background-color: black;
+    color: #ff4500;
+    border: 2px solid #ff4500;
+}
+
+#square-garden select:hover {
+    background-color: #ff4500;
+    color: black;
+}
+
+#square-garden input[type='submit'] {
+    border: 2px solid #ff4500;
+    border-radius: 8px;
+    background-color: black;
+    color: #ff4500;    
+}
+
 #container {
     display: grid;
     /* grid-gap: 1em; */
