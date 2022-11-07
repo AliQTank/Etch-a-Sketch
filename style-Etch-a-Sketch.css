@@ -52,6 +52,10 @@ header {
 
 }
 
+
+    
+
+
 #square-garden select {
     background-color: black;
     color: #ff4500;
@@ -87,3 +91,11 @@ header {
     text-align: center;
     opacity: 1;
     } 
+
+@media screen and (max-width: 480px) {
+    body>div {
+        display: flex;
+        flex-direction: column;
+    }
+
+}

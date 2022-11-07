@@ -1,6 +1,8 @@
 const container = document.getElementById('container');
 const squareGarden = document.getElementById('square-garden');
+const cuadrantSelector = document.getElementById('cuadrant');
 const buttonSquaresOpt = document.querySelector('#square-garden input[type="submit"');
+let squaresPerLine = 7
 let redRgb = Math.floor(Math.random()*255); // ONLY ONE VALUE PER PAGE LOAD
 let greenRgb = Math.floor(Math.random()*255); // ONLY ONE VALUE PER PAGE LOAD
 let blueRgb = Math.floor(Math.random()*255); // ONLY ONE VALUE PER PAGE LOAD
@@ -39,7 +41,7 @@ function makeGridXAndY(squaresPerLine) {
         }    
     }
         
-makeGridXAndY(5);
+makeGridXAndY(squaresPerLine);
 
 // 
 
@@ -58,6 +60,7 @@ for(let i = 0; i < divSelector.length; i++){
     divSelector[i].style.backgroundColor = oneRandomColor;
     divSelector[i].addEventListener('mouseover', coldplayMode);
     }
+    
 
 
 /* FUNCTION TO SELECT INDIVIDUAL CELL AND CALL RANDOMCOLOR FOR EVENT */
@@ -85,7 +88,18 @@ function coldplayMode(e) {
 
 // FUNCTION TO DARKER SIDE
 function toEternalDarkness(e) {
-    e.target.style.opacity = 0.8;
+    let opacityValue = 9;
+    let opacityDegree; 
+    if (!e.target.style.opacity) {     
+        opacityDegree = opacityValue / 10;   
+        e.target.style.opacity = opacityDegree;
+        console.log(opacityValue);
+    } else if (opacityValue > 0) {
+        opacityValue--;
+        opacityDegree = opacityValue / 10; 
+        e.target.style.opacity = opacityDegree;
+        console.log(opacityValue);
+    }  else {return}
     console.log(e.target);
 }
 
@@ -155,7 +169,8 @@ gridPrompter.children[0].addEventListener('click', () => {
 
 // ADDEVENTLISTENER FOR SQUAREGARDENOPT BUTTON
 
-buttonSquaresOpt.addEventListener('click', () => {
+buttonSquaresOpt.addEventListener('click', (e) => {
     console.log('clicked buttonSquareOpt');
     squareGarden.style.visibility = "hidden";
+    e.preventDefault();
 })
