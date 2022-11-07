@@ -1,8 +1,8 @@
 const container = document.getElementById('container');
 const squareGarden = document.getElementById('square-garden');
-const cuadrantSelector = document.getElementById('cuadrant');
+const select = document.getElementById('cuadrant');
 const buttonSquaresOpt = document.querySelector('#square-garden input[type="submit"');
-let squaresPerLine = 7
+let squaresPerLine = 6
 let redRgb = Math.floor(Math.random()*255); // ONLY ONE VALUE PER PAGE LOAD
 let greenRgb = Math.floor(Math.random()*255); // ONLY ONE VALUE PER PAGE LOAD
 let blueRgb = Math.floor(Math.random()*255); // ONLY ONE VALUE PER PAGE LOAD
@@ -174,10 +174,11 @@ buttonSquaresOpt.addEventListener('click', (e) => {
     squareGarden.style.visibility = "hidden";
     e.preventDefault();
     container.innerHTML = "";
-    makeGridXAndY(10); 
+    console.log(select.value);
+    makeGridXAndY(select.value); 
     divSelector = document.querySelectorAll('#container>div');
     for(let i = 0; i < divSelector.length; i++){
         divSelector[i].style.backgroundColor = oneRandomColor;
         divSelector[i].addEventListener('mouseover', coldplayMode);
-        }    
+        }        
 })
