@@ -45,7 +45,7 @@ makeGridXAndY(squaresPerLine);
 
 // 
 
-const divSelector = document.querySelectorAll('#container>div');
+let divSelector = document.querySelectorAll('#container>div');
 
 //RAINBOW COLORS
 
@@ -173,4 +173,11 @@ buttonSquaresOpt.addEventListener('click', (e) => {
     console.log('clicked buttonSquareOpt');
     squareGarden.style.visibility = "hidden";
     e.preventDefault();
+    container.innerHTML = "";
+    makeGridXAndY(10); 
+    divSelector = document.querySelectorAll('#container>div');
+    for(let i = 0; i < divSelector.length; i++){
+        divSelector[i].style.backgroundColor = oneRandomColor;
+        divSelector[i].addEventListener('mouseover', coldplayMode);
+        }    
 })
