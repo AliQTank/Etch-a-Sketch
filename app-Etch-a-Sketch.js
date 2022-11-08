@@ -6,16 +6,15 @@ let squaresPerLine = 6
 let redRgb = Math.floor(Math.random()*255); // ONLY ONE VALUE PER PAGE LOAD
 let greenRgb = Math.floor(Math.random()*255); // ONLY ONE VALUE PER PAGE LOAD
 let blueRgb = Math.floor(Math.random()*255); // ONLY ONE VALUE PER PAGE LOAD
-let oneRandomColor = `rgb(${redRgb}, ${greenRgb}, ${blueRgb})`; // ONLY ONE VALUE PER PAGE LOAD
+let oneRandomColor = `rgba(${redRgb}, ${greenRgb}, ${blueRgb}, 1)`; // ONLY ONE VALUE PER PAGE LOAD
 
+container.style.backgroundColor = 'rgba(0, 0, 0, 1)';
 /* FUNCTION TO CALL DIFERENT COLORS EVERY TIME IS CALLED */
 
-container.style.backgroundColor = 'rgb(0, 0, 0)';
-
 function randomColorsGenerator() {
-    return `rgb(${Math.floor(Math.random()*255)},
+    return `rgba(${Math.floor(Math.random()*255)},
     ${Math.floor(Math.random()*255)},
-    ${Math.floor(Math.random()*255)})`;
+    ${Math.floor(Math.random()*255)}, 1)`;
 }
 
 // FUNCTION TO CALL ONE SINGLE COLOR
@@ -67,40 +66,39 @@ for(let i = 0; i < divSelector.length; i++){
 
 function selectItem(e) {
     e.target.style.backgroundColor = randomColorsGenerator();
-    e.target.style.removeProperty('opacity');
-    //element.style.opacity = "" // THIS OPTION IS MORE COMPATIBLE WITH ELDER BROWSERS
+    console.log(this.style.opacity);
+    //e.target.style.removeProperty('opacity');
+    e.target.style.opacity = "" // THIS OPTION IS MORE COMPATIBLE WITH ELDER BROWSERS
     console.log(e.target);
 }
 
 
 //FUNCTION TO SELECT CELL INTO BLACK COLOR 
 function blackItem(e) {
-    e.target.style.backgroundColor = 'black';
+    e.target.style.backgroundColor = 'rgba(0, 0, 0, 1)';
     e.target.style.removeProperty('opacity');
     console.log(e.target);
 }
 
 // FUNCTION TO YELLOW
 function coldplayMode(e) {
-    e.target.style.backgroundColor = 'yellow';
+    e.target.style.backgroundColor = 'rgba(255, 255, 0, 1)';
     console.log(e.target);
 }
 
 // FUNCTION TO DARKER SIDE
+let opacityIndex = 10;
+let opacityValue 
+var opacityDegree;
+
 function toEternalDarkness(e) {
-    let opacityValue = 9;
-    let opacityDegree; 
-    if (!e.target.style.opacity) {     
-        opacityDegree = opacityValue / 10;   
-        e.target.style.opacity = opacityDegree;
-        console.log(opacityValue);
-    } else if (opacityValue > 0) {
-        opacityValue--;
-        opacityDegree = opacityValue / 10; 
-        e.target.style.opacity = opacityDegree;
-        console.log(opacityValue);
-    }  else {return}
-    console.log(e.target);
+    opacityValue = opacityIndex -1;
+    opacityDegree = opacityValue / 10;
+    if (!e.target.style.opacity) {
+        e.target.style.opacity = opacityDegree;      
+    } else if (e.target.style.opacity !== 0) {
+        e.target.style.opacity -= 0.1;
+    } else {return}
 }
 
 
@@ -111,7 +109,7 @@ const restart = document.getElementById('restart');
 restart.addEventListener('click', () => {
     console.log("clicked restart");
     for(let i = 0; i < divSelector.length; i++){
-        divSelector[i].style.backgroundColor = 'white';
+        divSelector[i].style.backgroundColor = 'rgba(255, 255, 255, 1)';
         divSelector[i].style.removeProperty('opacity');
         }
     })

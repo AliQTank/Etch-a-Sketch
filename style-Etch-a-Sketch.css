@@ -40,7 +40,7 @@ header {
 #square-garden {
     visibility: hidden;
     position: absolute; /* NOT YET ENDING FORM */
-    margin-left: 100px;
+    margin-left: 50px;
     margin-top: 0;
     border: 2px solid rgb(255, 255, 255);
     border-radius: 8px;
@@ -92,10 +92,21 @@ header {
     opacity: 1;
     } 
 
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 750px) {
     body>div {
         display: flex;
         flex-direction: column;
+    }
+
+    #container {
+        width: 600px;
+        height: 600px;
+        margin-top: 50px;
+    }
+
+    #square-garden {
+        margin-bottom: 20px;
+        position: relative;
     }
 
 }
